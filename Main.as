@@ -1,21 +1,30 @@
-﻿package  {
-	
+﻿package {
+
 	import flash.display.*;
 	import flash.events.*;
-	
+
 	public class Main extends MovieClip {
-		
-		var Enemy;
-		var Character;
+
+		var enemy;
+		var character;
+		var bullet;
 		public function Main() {
-			
-			Character = new character(this);
-			Character.x = 50;
-			Character.y = 50;
-			Enemy = new enemy;
-			stage.addChild(Enemy);
-			stage.addChild(Character);
+
+			bullet = new Bullet;
+			character = new Character(this);
+			character.x = 50;
+			character.y = 50;
+			enemy = new Enemy(character);
+			stage.addChild(enemy);
+			stage.addChild(character);
+
+			addEventListener(Event.ENTER_FRAME, Update)
+
+		}
+
+		public function Update(e: Event) {
+			character.Coll(enemy);
 		}
 	}
-	
+
 }
