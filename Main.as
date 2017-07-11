@@ -10,7 +10,7 @@
 		var bullet;
 		public function Main() {
 
-			bullet = new Bullet;
+			bullet = new Bullet(this);
 			character = new Character(this);
 			character.x = 50;
 			character.y = 50;
@@ -24,6 +24,7 @@
 
 		public function Update(e: Event) {
 			character.Coll(enemy);
+			enemy.Collision(character.bul);
 		}
 	}
 
